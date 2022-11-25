@@ -17,7 +17,6 @@ import java.util.concurrent.TimeUnit
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-
     private const val TIMEOUT_SECONDS = 15L
 
     @Provides
