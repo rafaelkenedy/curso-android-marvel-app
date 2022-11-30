@@ -20,6 +20,7 @@ class CharacetersViewHolder(
         Glide.with(itemView)
             .load(character.imageUrl)
             .fallback(R.drawable.ic_img_loading_error)
+            .dontAnimate()
             .into(imageCharacter)
     }
 
