@@ -1,17 +1,19 @@
 package com.example.marvelapp.presentation.characters
 
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import com.rafael.core.domain.model.Character
 
-class CharactersAdapter : ListAdapter<Character, CharacetersViewHolder>(diffCallBack) {
+class CharactersAdapter : PagingDataAdapter<Character, CharacetersViewHolder>(diffCallBack) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacetersViewHolder {
         return CharacetersViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: CharacetersViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        getItem(position)?.let { character ->
+            holder.bind(character)
+        }
     }
 
     companion object {
